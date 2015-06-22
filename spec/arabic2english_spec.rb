@@ -94,7 +94,7 @@ describe ArabicToEnglish do
 
   describe "#Check input should be an integer" do
     it "it should return error message to the user" do      
-      expect(@conversion.get_word("test").join(' ')).to eq "Invalid Input - Please enter the number form 0 to 999999999"
+      expect(conversion.get_word("test").join(' ')).to eq "Invalid Input - Please enter the number form 0 to 999999999"
     end
   end
 

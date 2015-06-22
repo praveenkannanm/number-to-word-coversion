@@ -48,8 +48,10 @@ class ArabicToEnglish
       process_100s(value)
     when (1000..999999).include?(value)
       process_1000s(value)
-    when (1000000..999999999)
+    when (1000000..999999999).include?(value)
       process_millions(value)
+    else
+      result << "Invalid Input - Please enter the number form 0 to 999999999"
     end
   end
 
@@ -92,5 +94,5 @@ end
 value = ARGV[0].to_i
 int_to_word_conversion  = ArabicToEnglish.new
 int_to_word_conversion.get_word(value)
-puts int_to_word_conversion.result
+puts int_to_word_conversion.result.join(' ')
 
