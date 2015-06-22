@@ -44,9 +44,9 @@ describe ArabicToEnglish do
   end
 
   describe "#Check four digit input in thousands" do
-    it "it should return thousand eight hundred in string" do
+    it "it should return one thousand eight hundred in string" do
       conversion.get_word(1800)
-      expect(conversion.result.join(' ')).to eq "thousand eight hundred"
+      expect(conversion.result.join(' ')).to eq "one thousand eight hundred"
     end
   end
 

@@ -46,6 +46,8 @@ class ArabicToEnglish
       process_10s(value)
     when (100..999).include?(value)
       process_100s(value)
+    when (1000..999999).include?(value)
+      process_1000s(value)
     end
   end
 
@@ -68,6 +70,13 @@ class ArabicToEnglish
     get_word(value % 100)
   end
 
+  # Meathod for process value from 1000 to 999999
+  def process_1000s(value)
+    get_word((value / 1000))
+    @result << @numbers_to_name[1000]
+    return @result if (value % 1000) == 0
+    get_word(value % 1000)
+  end
 end
 
 value = ARGV[0].to_i
