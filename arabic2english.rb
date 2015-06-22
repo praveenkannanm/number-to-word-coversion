@@ -48,6 +48,8 @@ class ArabicToEnglish
       process_100s(value)
     when (1000..999999).include?(value)
       process_1000s(value)
+    when (1000000..999999999)
+      process_millions(value)
     end
   end
 
@@ -70,12 +72,20 @@ class ArabicToEnglish
     get_word(value % 100)
   end
 
-  # Meathod for process value from 1000 to 999999
+  # Method for process value from 1000 to 999999
   def process_1000s(value)
     get_word((value / 1000))
     @result << @numbers_to_name[1000]
     return @result if (value % 1000) == 0
     get_word(value % 1000)
+  end
+
+  # Method for process value from 
+  def process_millions(value)
+    get_word(value/1000000)
+    @result << @numbers_to_name[1000000]
+    return @result if (value % 1000000) == 0
+    get_word(value % 1000000)
   end
 end
 

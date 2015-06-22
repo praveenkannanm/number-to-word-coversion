@@ -85,9 +85,23 @@ describe ArabicToEnglish do
     end
   end
 
+  describe "#Check max input of million " do
+    it "it should return 'nine hundred ninety nine million nine hundred ninety nine thousand nine hundred ninety nine' in string " do   
+      conversion.get_word(999999999)   
+      expect(conversion.result.join(' ')).to eq "nine hundred ninety nine million nine hundred ninety nine thousand nine hundred ninety nine"
+    end
+  end
+
   describe "#Check input should be an integer" do
     it "it should return error message to the user" do      
       expect(@conversion.get_word("test").join(' ')).to eq "Invalid Input - Please enter the number form 0 to 999999999"
+    end
+  end
+
+  describe "#check the input above million " do
+    it "it should return an error message to enter the number between 0 to 999999999 " do   
+      conversion.get_word(9999999999)   
+      expect(conversion.result.join(' ')).to eq "Invalid Input - Please enter the number form 0 to 999999999"
     end
   end
 end
