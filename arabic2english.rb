@@ -42,10 +42,21 @@ class ArabicToEnglish
     case
     when (0..9).include?(value)
       result << numbers_to_name[value]
-
+    when (10..99).include?(value)
+      process_10s(value)
     end
   end
 
+  # Meathod for process the value from 10 to 99
+  def process_10s(value)
+    if( (value % 10) == 0 || value <= 20)
+      @result << @numbers_to_name[value]
+    else
+      tens = value % 10
+      @result  << @numbers_to_name[value - tens]
+      @result << @numbers_to_name[tens]
+    end
+  end
 
 end
 
