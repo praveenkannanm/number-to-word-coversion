@@ -38,5 +38,19 @@ class ArabicToEnglish
   end
 
 
+  def get_word(value)
+    case
+    when (0..9).include?(value)
+      result << numbers_to_name[value]
+
+    end
+  end
+
+
 end
+
+value = ARGV[0].to_i
+int_to_word_conversion  = ArabicToEnglish.new
+int_to_word_conversion.get_word(value)
+puts int_to_word_conversion.result
 
