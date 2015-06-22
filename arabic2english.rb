@@ -44,10 +44,12 @@ class ArabicToEnglish
       result << numbers_to_name[value]
     when (10..99).include?(value)
       process_10s(value)
+    when (100..999).include?(value)
+      process_100s(value)
     end
   end
 
-  # Meathod for process the value from 10 to 99
+  # Method for process value from 10 to 99
   def process_10s(value)
     if( (value % 10) == 0 || value <= 20)
       @result << @numbers_to_name[value]
@@ -56,6 +58,14 @@ class ArabicToEnglish
       @result  << @numbers_to_name[value - tens]
       @result << @numbers_to_name[tens]
     end
+  end
+
+  # Method for process value from 100 to 999
+  def process_100s(value)
+    @result << @numbers_to_name[(value / 100)]
+    @result << @numbers_to_name[100]
+    return @result if (value % 100) == 0
+    get_word(value % 100)
   end
 
 end
