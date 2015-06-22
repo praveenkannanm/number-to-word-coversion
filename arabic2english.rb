@@ -1,4 +1,5 @@
 class ArabicToEnglish
+  attr_accessor :numbers_to_name
   def initialize
     @numbers_to_name = {
           1000000 => "million",
@@ -35,6 +36,5 @@ class ArabicToEnglish
         }
     @result = []
   end
-
 end
 
